@@ -1,0 +1,14 @@
+{
+  "hash": "690101c66a9fbccdaf021fb7371d0e5f",
+  "result": {
+    "markdown": "---\ntitle: \"DANL 200: Introduction to Data Analytics<br>Project\"\nsubtitle: \"Quarto Template<br><br>\" \nauthor: Jessica Horst\naffiliations: SUNY Geneseo\ndate: \"2023-12-05\"\n\nformat: \n  html:\n    toc: true\n    number-sections: true\n    code-fold: false       # https://quarto.org/docs/output-formats/html-code.html\n    code-summary: \"Show the code\"\n    code-tools: true\n    highlight-style: espresso # atom-one tango espresso\n\nexecute: \n  echo: true\n  eval: true\n  warning: false\n  message: false\n  fig-width: 9\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(hrbrthemes)\nlibrary(skimr)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
