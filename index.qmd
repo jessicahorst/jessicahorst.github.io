@@ -2,7 +2,7 @@
 title: "Jessica Horst"
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
+  image: C:\Users\Jhors\iCloudPhotos\Photos\2552337F-28B7-434D-B005-475637B3A5C3.jpg
   image-width: 15em
   image-shape: round # rectangle  round  rounded
   
@@ -26,7 +26,7 @@ about:
 ---
 
 
-Jessica Horst majors in Business Administration at SUNY Geneseo. She is a sophomore and is a mentor for the Geneseo GOLD program.
+I major in Business Administration at SUNY Geneseo. I am a sophomore and I am a mentor for the Geneseo GOLD program.
 
 ## Education
 
