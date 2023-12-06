@@ -1,5 +1,5 @@
 ---
-title: "NFL in 2022 <br><br>"
+title: "Final Project for Data Analytics <br><br>"
 listing:
   contents: posts
   type: default
