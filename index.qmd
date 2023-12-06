@@ -2,7 +2,7 @@
 title: "Jessica Horst"
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: profile picture.jpg 
+  image: profile picture.JPG 
   image-width: 15em
   image-shape: round # rectangle  round  rounded
   
