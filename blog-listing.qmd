@@ -1,5 +1,5 @@
 ---
-title: "Final Project for Data Analytics <br><br>"
+title: "Data Analytics <br><br>"
 listing:
   contents: posts
   type: default

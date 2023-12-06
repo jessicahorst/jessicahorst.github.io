@@ -1,7 +1,7 @@
 ---
 title: "Beer Markets"
-author: "Byeong-Hak Choe"
-date: "2023-11-02"
+author: "Jessica Horst"
+date: "`r Sys.Date()`"
 categories: [beer, code, data-analysis]
 image: "image.png"
 
