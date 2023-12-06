@@ -1,8 +1,8 @@
 ---
 title: DANL Project
-subtitle: "Data-Driven Mastery: Unlocking Business Potential"
+subtitle: "nflfastR"
 author: 
-  - Name 1
+  - Name Jessica Horst
   - Name 2
   - Name 3
   - Name 4
@@ -49,9 +49,7 @@ theme_set(theme_ipsum()+
 
 About this project :clap:
 
-```{r}
-1 + 1
-```
+the purpose of this project is to show our understanding of the Rstudio and Quarto.
 
 
 # Data
