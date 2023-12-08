@@ -4,7 +4,7 @@
     "href": "blog-listing.html",
     "title": "Data Analytics ",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n9 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nspotify_all\n\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nresturant inspection\n\n\n\n\n\n\n\n\n\n4 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "danl200-hw5-horst-jessica.html",
@@ -35,74 +35,11 @@
     "text": "Experience\nKohls | Employee | August 2020 - April 2021  Delta Sonic | Delta Technician | March 2021 - Present"
   },
   {
-    "objectID": "posts/beer-markets/beer-markets.html",
-    "href": "posts/beer-markets/beer-markets.html",
-    "title": "Beer Markets",
+    "objectID": "posts/restaurant/restaurant.html",
+    "href": "posts/restaurant/restaurant.html",
+    "title": "resturant inspection",
     "section": "",
-    "text": "Let’s analyze the beer_data data:\nbeer_data &lt;- read_csv(\"https://bcdanl.github.io/data/beer_markets.csv\")"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#variable-description-for-beer_data-data.frame",
-    "href": "posts/beer-markets/beer-markets.html#variable-description-for-beer_data-data.frame",
-    "title": "Beer Markets",
-    "section": "Variable Description for beer_data data.frame",
-    "text": "Variable Description for beer_data data.frame\nThe following describes the variables in the beer_data data.frame.\n\nhh: Household identifier\n_purchase_desc: Description of the purchase\nquantity: The quantity of beer purchased\nbrand: The brand of beer\ndollar_spent: The amount spent\nbeer_floz: Fluid ounces of beer\nprice_per_floz: Price per fluid ounce\ncontainer: Type of container\npromo: Whether the purchase was on promotion\nmarket: The market where the purchase was made\nDemographics: age, employment status, degree, class of worker (cow), race, and household information like microwave, dishwasher, tvcable, singlefamilyhome, and npeople (number of people in the household)"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#purchase-patterns",
-    "href": "posts/beer-markets/beer-markets.html#purchase-patterns",
-    "title": "Beer Markets",
-    "section": "Purchase Patterns",
-    "text": "Purchase Patterns\nWe’ll explore the purchase patterns in the dataset. This includes understanding the most popular brands, the average quantity purchased, and spending habits across different markets. Here are some specific analyses we can perform:\n\nCalculate the total quantity and spending for each brand.\nFind the average quantity purchased and average spending per purchase.\nCompare the total spending across different markets.\n\nI’ll begin with these analyses and create visualizations to help us understand the data better. Let’s start by calculating the total quantity and spending for each brand.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Reading the CSV file\nbeer_data = pd.read_csv(\"https://bcdanl.github.io/data/beer_markets.csv\")\n\n# Setting up the visualisation settings\nsns.set(style=\"whitegrid\")\n\n# Calculate total quantity and spending for each brand\nbrand_summary = beer_data.groupby('brand').agg({'quantity':'sum', 'dollar_spent':'sum'}).reset_index()\n\n# Sort by total quantity and spending\nbrand_summary_sorted_quantity = brand_summary.sort_values('quantity', ascending=False)\nbrand_summary_sorted_spent = brand_summary.sort_values('dollar_spent', ascending=False)\n\n\n# Plotting total quantity for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='quantity', y='brand', data=brand_summary_sorted_quantity, palette='viridis')\nplt.title('Total Quantity of Beer Purchased by Brand')\nplt.xlabel('Total Quantity')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n# Plotting total spending for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='dollar_spent', y='brand', data=brand_summary_sorted_spent, palette='viridis')\nplt.title('Total Spending on Beer by Brand')\nplt.xlabel('Total Spending')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe bar charts above display the total quantity of beer purchased and the total spending by brand. From the looks of it, certain brands dominate in terms of quantity sold and total spending, indicating their popularity.\nNow, let’s calculate the average quantity purchased and average spending per purchase. For this, we’ll consider each row in the dataset as a separate purchase and compute the averages accordingly.\n\n# Calculate average quantity purchased and average spending per purchase\naverage_purchase = beer_data.groupby('brand').agg({\n    'quantity': 'mean', \n    'dollar_spent': 'mean'\n}).reset_index()\n\n# Sort by average quantity and average spending\naverage_purchase_sorted_quantity = average_purchase.sort_values('quantity', ascending=False)\naverage_purchase_sorted_spent = average_purchase.sort_values('dollar_spent', ascending=False)\n\n# Plotting average quantity for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='quantity', y='brand', data=average_purchase_sorted_quantity, palette='viridis')\nplt.title('Average Quantity of Beer Purchased by Brand')\nplt.xlabel('Average Quantity')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n# Plotting average spending for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='dollar_spent', y='brand', data=average_purchase_sorted_spent, palette='viridis')\nplt.title('Average Spending on Beer by Brand')\nplt.xlabel('Average Spending')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe visualizations above depict the average quantity of beer purchased per brand and the average spending per brand. This shows which brands tend to be bought in larger quantities on average and which brands tend to have higher spending per purchase, which could be indicative of their price point or the purchase of premium products.\nNext, we’ll look at the total spending across different markets to see if there are any notable differences in spending habits geographically. To do this, we’ll sum up the spending in each market and visualize it.\n\n# Calculate total spending in each market\nmarket_spending_summary = beer_data.groupby('market').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nmarket_spending_summary_sorted = market_spending_summary.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending in each market\nplt.figure(figsize=(12, 10))\nsns.barplot(x='dollar_spent', y='market', data=market_spending_summary_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Market')\nplt.xlabel('Total Spending')\nplt.ylabel('Market')\nplt.show()\n\n\n\n\nThe bar chart illustrates the total spending on beer by market, showcasing the differences in spending habits across various regions. Some markets have significantly higher spending, which could be due to a variety of factors including market size, consumer preferences, or economic factors.\nNow, let’s move on to the second analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#demographic-analysis",
-    "href": "posts/beer-markets/beer-markets.html#demographic-analysis",
-    "title": "Beer Markets",
-    "section": "Demographic Analysis",
-    "text": "Demographic Analysis\nWe will examine which demographics are buying what kind of beer and whether spending habits vary by demographics such as age, employment, and race. For this, we could look at:\n\nSpending by age group\nSpending by employment status\nSpending by race\n\nI’ll start by analyzing spending by age group.\n\n# Calculate total spending by age group\nage_group_spending = beer_data.groupby('age').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nage_group_spending_sorted = age_group_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by age group\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='age', data=age_group_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Age Group')\nplt.xlabel('Total Spending')\nplt.ylabel('Age Group')\nplt.show()\n\n\n\n\nThe bar chart demonstrates the total spending on beer segmented by age group, highlighting which age groups spend the most on beer. It appears that certain age groups are more dominant in beer spending, which may align with the purchasing power or preferences of those groups.\nNext, we will examine spending by employment status.\n\n# Calculate total spending by employment status\nemployment_spending = beer_data.groupby('employment').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nemployment_spending_sorted = employment_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by employment status\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='employment', data=employment_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Employment Status')\nplt.xlabel('Total Spending')\nplt.ylabel('Employment Status')\nplt.show()\n\n\n\n\nThe visualization shows the total spending on beer by employment status. We can see that certain employment groups, such as full-time workers, are spending more on beer, which might be related to their disposable income.\nFinally, let’s look at spending by race to complete the demographic analysis.\n\n# Calculate total spending by race\nrace_spending = beer_data.groupby('race').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nrace_spending_sorted = race_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by race\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='race', data=race_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Race')\nplt.xlabel('Total Spending')\nplt.ylabel('Race')\nplt.show()\n\n\n\n\nThe bar chart above indicates the total spending on beer broken down by race, highlighting which racial groups account for the most beer spending within the dataset. This could reflect both the demographics of the regions where the data was collected and cultural preferences regarding beer.\nNow, let’s proceed to the third analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#price-sensitivity",
-    "href": "posts/beer-markets/beer-markets.html#price-sensitivity",
-    "title": "Beer Markets",
-    "section": "Price Sensitivity",
-    "text": "Price Sensitivity\nWe’ll look at the price per fluid ounce and see if there are any trends or correlations with the quantity purchased or the brand popularity. To do this, we’ll calculate the average price per fluid ounce for each brand and then visualize how this relates to the average quantity purchased and the total quantity purchased by brand.\nFirst, let’s calculate the average price per fluid ounce for each brand.\n\n# Calculate average price per fluid ounce for each brand\nbrand_price_sensitivity = beer_data.groupby('brand').agg({\n    'price_per_floz': 'mean', \n    'quantity': 'sum'\n}).reset_index()\n\n# Sort by price per fluid ounce\nbrand_price_sensitivity_sorted = brand_price_sensitivity.sort_values('price_per_floz', ascending=True)\n\n# Plotting average price per fluid ounce for each brand and the total quantity purchased\nfig, ax1 = plt.subplots(figsize=(12, 10))\n\ncolor = 'tab:red'\nax1.set_xlabel('Brand')\nax1.set_ylabel('Average Price per Fluid Ounce', color=color)\nax1.bar(brand_price_sensitivity_sorted['brand'], brand_price_sensitivity_sorted['price_per_floz'], color=color)\nax1.tick_params(axis='y', labelcolor=color)\nax1.set_xticklabels(brand_price_sensitivity_sorted['brand'], rotation=90)\n\nax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis\ncolor = 'tab:blue'\nax2.set_ylabel('Total Quantity Purchased', color=color)  # we already handled the x-label with ax1\nax2.plot(brand_price_sensitivity_sorted['brand'], brand_price_sensitivity_sorted['quantity'], color=color)\nax2.tick_params(axis='y', labelcolor=color)\n\nfig.tight_layout()  # otherwise the right y-label is slightly clipped\nplt.title('Average Price per Fluid Ounce & Total Quantity Purchased by Brand')\nplt.show()\n\n\n\n\nIn the visualization, we have a bar graph showing the average price per fluid ounce for each brand (in red) and a line graph showing the total quantity purchased for each brand (in blue). This gives us a sense of whether there’s a relationship between the price and the quantity purchased. The x-axis labels are quite compressed due to the number of brands, but we can still observe trends such as whether lower-priced beers tend to be purchased in larger quantities.\nLastly, let’s move to the fourth analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#promotional-impact",
-    "href": "posts/beer-markets/beer-markets.html#promotional-impact",
-    "title": "Beer Markets",
-    "section": "Promotional Impact",
-    "text": "Promotional Impact\nWe’ll assess the impact of promotions on the quantity of beer purchased. For this analysis, we can calculate the average quantity purchased with and without promotions and visualize the difference. We’ll do this for each brand to see which brands are most affected by promotions.\nLet’s begin this analysis by looking at the average quantity purchased with and without promotions for each brand.\n\n# Calculate average quantity purchased with and without promotions for each brand\npromo_impact = beer_data.groupby(['brand', 'promo']).agg({'quantity':'mean'}).reset_index()\n\n# Pivot the data to have promo and non-promo side by side for each brand\npromo_impact_pivot = promo_impact.pivot(index='brand', columns='promo', values='quantity').reset_index()\npromo_impact_pivot.columns = ['brand', 'non_promo', 'promo']\n\n# Calculate the difference in average quantity purchased between promo and non-promo\npromo_impact_pivot['promo_impact'] = promo_impact_pivot['promo'] - promo_impact_pivot['non_promo']\n\n# Sort by the impact of promo\npromo_impact_pivot_sorted = promo_impact_pivot.sort_values('promo_impact', ascending=False)\n\n# Plotting the difference in average quantity purchased between promo and non-promo for each brand\nplt.figure(figsize=(12, 10))\nsns.barplot(x='promo_impact', y='brand', data=promo_impact_pivot_sorted, palette='viridis')\nplt.title('Impact of Promotions on Average Quantity Purchased by Brand')\nplt.xlabel('Difference in Average Quantity Purchased (Promo - Non-Promo)')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe bar chart illustrates the impact of promotions on the average quantity of beer purchased by brand. A positive value indicates that, on average, more beer is purchased when there is a promotion compared to when there isn’t. Some brands appear to be significantly more influenced by promotions, with customers buying more when the products are on sale or promotion.\nThis comprehensive analysis has provided insights into purchase patterns, demographic preferences, price sensitivity, and the impact of promotions on beer purchases."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/starwars/starwars_df.html",
-    "href": "posts/starwars/starwars_df.html",
-    "title": "Starwars",
-    "section": "",
-    "text": "Let’s analyze the starwars data:\nstarwars &lt;- read_csv(\"https://bcdanl.github.io/data/starwars.csv\")"
-  },
-  {
-    "objectID": "posts/starwars/starwars_df.html#variable-description-for-starwars-data.frame",
-    "href": "posts/starwars/starwars_df.html#variable-description-for-starwars-data.frame",
-    "title": "Starwars",
-    "section": "Variable Description for starwars data.frame",
-    "text": "Variable Description for starwars data.frame\nThe following describes the variables in the starwars data.frame.\n\nfilms List of films the character appeared in\nname Name of the character\nspecies Name of species\nheight Height (cm)\nmass Weight (kg)\nhair_color, skin_color, eye_color Hair, skin, and eye colors\nbirth_year Year born (BBY = Before Battle of Yavin)\nsex The biological sex of the character, namely male, female, hermaphroditic, or none (as in the case for Droids).\ngender The gender role or gender identity of the character as determined by their personality or the way they were programmed (as in the case for Droids).\nhomeworld Name of homeworld"
-  },
-  {
-    "objectID": "posts/starwars/starwars_df.html#human-vs.-droid",
-    "href": "posts/starwars/starwars_df.html#human-vs.-droid",
-    "title": "Starwars",
-    "section": "Human vs. Droid",
-    "text": "Human vs. Droid\n\nggplot(data = \n         starwars %&gt;% \n         filter(species %in% c(\"Human\", \"Droid\"))) +\n  geom_boxplot(aes(x = species, y = mass, \n                   fill = species),\n               show.legend = FALSE)"
+    "text": "Let’s analyze the restaurant data:\n\nrestaurant &lt;- read_csv(\"https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\")"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -131,5 +68,89 @@
     "title": "DANL Project",
     "section": "2.2 MPG and a Type of Cars",
     "text": "2.2 MPG and a Type of Cars\nThe following boxplot shows how the distribution of highway MPG (hwy) varies by a type of cars (class) 🚙 🚚 🚐.\n\nggplot(data = mpg) +\n  geom_boxplot(aes(x = class, y = hwy, fill = class),\n               show.legend = F) +\n  labs(x = \"Class\", y = \"Highway\\nMPG\")"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#restaurants",
+    "href": "posts/restaurant/restaurant.html#restaurants",
+    "title": "resturant inspection",
+    "section": "",
+    "text": "Let’s analyze the restaurant data:\n\nrestaurant &lt;- read_csv(\"https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\")"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1a",
+    "href": "posts/restaurant/restaurant.html#q1a",
+    "title": "resturant inspection",
+    "section": "Q1a",
+    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1b",
+    "href": "posts/restaurant/restaurant.html#q1b",
+    "title": "resturant inspection",
+    "section": "Q1b",
+    "text": "Q1b\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1c",
+    "href": "posts/restaurant/restaurant.html#q1c",
+    "title": "resturant inspection",
+    "section": "Q1c",
+    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_wrap( `CRITICAL FLAG` ~ GRADE, scales = 'free' )"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1d",
+    "href": "posts/restaurant/restaurant.html#q1d",
+    "title": "resturant inspection",
+    "section": "Q1d",
+    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = `CRITICAL FLAG`,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1e",
+    "href": "posts/restaurant/restaurant.html#q1e",
+    "title": "resturant inspection",
+    "section": "Q1e",
+    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(`CUISINE DESCRIPTION`) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(`CUISINE DESCRIPTION`, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(`CUISINE DESCRIPTION`) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1f",
+    "href": "posts/restaurant/restaurant.html#q1f",
+    "title": "resturant inspection",
+    "section": "Q1f",
+    "text": "Q1f\nFind the 3 most common names of restaurants (DBA) in each BORO. If the third most common DBA values are multiple, please include all the DBA values. Overall, which DBA value is most common in NYC?\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)"
+  },
+  {
+    "objectID": "posts/restaurant/restaurant.html#q1g",
+    "href": "posts/restaurant/restaurant.html#q1g",
+    "title": "resturant inspection",
+    "section": "Q1g",
+    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, `CRITICAL FLAG`) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)"
+  },
+  {
+    "objectID": "posts/spotify_all/spotify_all.html",
+    "href": "posts/spotify_all/spotify_all.html",
+    "title": "spotify_all",
+    "section": "",
+    "text": "Let’s analyze the spotify_all data:\nspotify_all &lt;- read_csv('https://bcdanl.github.io/data/spotify_all.csv')\n\nRows: 198005 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): playlist_name, artist_name, track_name, album_name\ndbl (3): pid, pos, duration_ms\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n##Q1a\nFind the ten most popular song. A value of a song is defined as a combination of a artist_name value and a track_name value. Who are artists for those ten most popular song?\nQ1a &lt;- spotify_all %&gt;% \n  count(artist_name, track_name) %&gt;% \n  arrange(-n) %&gt;% \n  head(10)\n\nQ1a\n\n# A tibble: 10 × 3\n   artist_name      track_name                              n\n   &lt;chr&gt;            &lt;chr&gt;                               &lt;int&gt;\n 1 Drake            One Dance                             143\n 2 Kendrick Lamar   HUMBLE.                               142\n 3 The Chainsmokers Closer                                129\n 4 DRAM             Broccoli (feat. Lil Yachty)           127\n 5 Post Malone      Congratulations                       119\n 6 Migos            Bad and Boujee (feat. Lil Uzi Vert)   117\n 7 KYLE             iSpy (feat. Lil Yachty)               115\n 8 Lil Uzi Vert     XO TOUR Llif3                         113\n 9 Aminé            Caroline                              107\n10 Khalid           Location                              102"
+  },
+  {
+    "objectID": "posts/spotify_all/spotify_all.html#q1b",
+    "href": "posts/spotify_all/spotify_all.html#q1b",
+    "title": "spotify_all",
+    "section": "Q1b",
+    "text": "Q1b\nFind the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all. What is the most popular song for each of the five most popular artist?\n\nQ1b &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 5) %&gt;% \n  group_by(artist_name, track_name) %&gt;% \n  mutate(n_popular_track = n()) %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(track_ranking = dense_rank( desc(n_popular_track) ) ) %&gt;% \n  filter( track_ranking &lt;= 2) %&gt;%   # I just wanted to see the top two tracks for each artist\n  select(artist_name, artist_ranking, n_popular_artist, track_name, track_ranking, n_popular_track) %&gt;% \n  distinct() %&gt;% \n  arrange(artist_ranking, track_ranking)\n\nQ1b\n\n# A tibble: 10 × 6\n# Groups:   artist_name [5]\n   artist_name    artist_ranking n_popular_artist track_name  track_ranking\n   &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt; &lt;chr&gt;               &lt;int&gt;\n 1 Drake                       1             2715 One Dance               1\n 2 Drake                       1             2715 Jumpman                 2\n 3 Kanye West                  2             1065 Gold Digger             1\n 4 Kanye West                  2             1065 Stronger                2\n 5 Kendrick Lamar              3             1035 HUMBLE.                 1\n 6 Kendrick Lamar              3             1035 DNA.                    2\n 7 Rihanna                     4              915 Needed Me               1\n 8 Rihanna                     4              915 Work                    2\n 9 The Weeknd                  5              913 Starboy                 1\n10 The Weeknd                  5              913 The Hills               2\n# ℹ 1 more variable: n_popular_track &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/spotify_all/spotify_all.html#q1c",
+    "href": "posts/spotify_all/spotify_all.html#q1c",
+    "title": "spotify_all",
+    "section": "Q1c",
+    "text": "Q1c\nProvide both (1) ggplot codes and (2) a couple of sentences to describe the relationship between pos and the ten most popular artists.\n\nQ1c &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 10) \n  \n# boxplot\nggplot(Q1c,\n       aes(x = pos, y = fct_reorder(artist_name, -artist_ranking)) ) +\n  geom_boxplot() +\n  stat_summary(\n    fun = mean,\n    color = 'red'\n  )\n\nWarning: Removed 10 rows containing missing values (`geom_segment()`).\n\n\nWarning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family\nnot found in Windows font database\n\nWarning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family\nnot found in Windows font database\n\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database\n\nWarning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font\nfamily not found in Windows font database"
+  },
+  {
+    "objectID": "posts/spotify_all/spotify_all.html#q1d",
+    "href": "posts/spotify_all/spotify_all.html#q1d",
+    "title": "spotify_all",
+    "section": "Q1d",
+    "text": "Q1d\nCreate the data.frame with pid-artist level of observations with the following four variables:\npid: playlist id playlist_name: name of playlist artist: name of the track’s primary artist, which appears only once within a playlist n_artist: number of occurrences of artist within a playlist\n\nQ1d &lt;- spotify_all %&gt;% \n  count(pid, playlist_name, artist_name) %&gt;% \n  rename(n_artist = n) %&gt;% \n  arrange(pid, -n_artist, artist_name)"
   }
 ]

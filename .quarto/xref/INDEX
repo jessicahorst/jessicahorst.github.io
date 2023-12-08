@@ -22,5 +22,17 @@
   },
   "project.qmd": {
     "project.html": "808cf232"
+  },
+  "posts/restaurant/restaurant.qmd": {
+    "restaurant.html": "4954a339"
+  },
+  "posts/beer_markets/beer_markets.qmd": {
+    "beer_markets.html": "81d563b9"
+  },
+  "posts/spotify_all/spotify_all.qmd": {
+    "spotify_all.html": "e8fa2726"
+  },
+  "posts/nlf_2022/nfl_2022.qmd": {
+    "nfl_2022.html": "9436adec"
   }
 }
