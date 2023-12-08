@@ -1,0 +1,16 @@
+{
+  "hash": "893f6204f9a07927aefae07272e2958e",
+  "result": {
+    "markdown": "---\ntitle: \"NFL2022_Stuffs\"\nauthor: \"Jessica Horst\"\ndate: \"2023-12-08\"\ncategories: [NFL, data analysis]\n---\n\n\n\n\nLets analyze the `NFL2022_stuffs` data\n\n\n::: {.cell}\n\n```{.r .cell-code}\nNFL2022_stuffs <- read_csv('https://bcdanl.github.io/data/NFL2022_stuffs.csv')\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nRows: 50147 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): game_id, posteam\ndbl (8): play_id, drive, week, qtr, down, half_seconds_remaining, pass, wp\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n```\n:::\n:::\n\n\n## Q1a\n\nIn data.frame, NFL2022_stuffs, remove observations for which values of posteam is missing.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nnflq1a <- NFL2022_stuffs[!is.na(NFL2022_stuffs$posteam), ]\n```\n:::\n\n\n## Q1b\n\nSummarize the mean value of pass for each posteam when all the following conditions hold:\nwp is greater than 20% and less than 75%;\ndown is less than or equal to 2; and\nhalf_seconds_remaining is greater than 120.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nnflq1b <- NFL2022_stuffs %>%\n  filter(\n    wp > 0.2 & wp < 0.75,\n    down <= 2,\n    half_seconds_remaining > 120\n  )\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nnflq1b1 <- nflq1b %>%\n  group_by(posteam) %>%\n  summarise(mean_pass = mean(pass, na.rm = TRUE))\n```\n:::\n\n\n## Q1c\n\nProvide both (1) a ggplot code with geom_point() using the resulting data.frame in Q2b and (2) a simple comments to describe the mean value of pass for each posteam.\nIn the ggplot, reorder the posteam categories based on the mean value of pass in ascending or in descending order.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsummary_data <- nflq1b1 %>%\n  arrange(mean_pass)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(summary_data, aes(x = reorder(posteam, mean_pass), y = mean_pass)) +\n  geom_point() +\n  labs(\n    title = \"Mean Value of pass for each posteam\",\n    x = \"posteam\",\n    y = \"Mean pass\"\n  ) +\n  theme_minimal()\n```\n\n::: {.cell-output-display}\n![](nfl_2022_files/figure-html/unnamed-chunk-7-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "nfl_2022_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

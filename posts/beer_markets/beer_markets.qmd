@@ -1,17 +1,8 @@
-### Beer_market
-
---- 
-title: "Beer_Market"
+---
+title: "spotify_all"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
-categories: [resturant, data analysis]
-image: "image.png"
-
-execute: 
-  warning: false
-  message: false
-  
-toc: true
+categories: [beer market, data analysis]
 ---
 
 ```{r}

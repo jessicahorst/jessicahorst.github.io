@@ -1,0 +1,89 @@
+---
+title: "NFL2022_Stuffs"
+author: "Jessica Horst"
+date: "`r Sys.Date()`"
+categories: [NFL, data analysis]
+---
+
+```{r}
+#| include: false
+
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x  = element_text(angle = 0,
+                                            size = rel(1.5),
+                                            margin = margin(10,0,0,0)),
+                axis.title.y  = element_text(angle = 0,
+                                            size = rel(1.5),
+                                            margin = margin(0,10,0,0))
+                )
+          )
+```
+
+Lets analyze the `NFL2022_stuffs` data
+
+```{r}
+NFL2022_stuffs <- read_csv('https://bcdanl.github.io/data/NFL2022_stuffs.csv')
+```
+
+## Q1a
+
+In data.frame, NFL2022_stuffs, remove observations for which values of posteam is missing.
+
+```{r}
+nflq1a <- NFL2022_stuffs[!is.na(NFL2022_stuffs$posteam), ]
+```
+
+## Q1b
+
+Summarize the mean value of pass for each posteam when all the following conditions hold:
+wp is greater than 20% and less than 75%;
+down is less than or equal to 2; and
+half_seconds_remaining is greater than 120.
+
+```{r}
+nflq1b <- NFL2022_stuffs %>%
+  filter(
+    wp > 0.2 & wp < 0.75,
+    down <= 2,
+    half_seconds_remaining > 120
+  )
+```
+
+```{r}
+nflq1b1 <- nflq1b %>%
+  group_by(posteam) %>%
+  summarise(mean_pass = mean(pass, na.rm = TRUE))
+```
+
+## Q1c
+
+Provide both (1) a ggplot code with geom_point() using the resulting data.frame in Q2b and (2) a simple comments to describe the mean value of pass for each posteam.
+In the ggplot, reorder the posteam categories based on the mean value of pass in ascending or in descending order.
+
+```{r}
+summary_data <- nflq1b1 %>%
+  arrange(mean_pass)
+```
+
+
+```{r}
+ggplot(summary_data, aes(x = reorder(posteam, mean_pass), y = mean_pass)) +
+  geom_point() +
+  labs(
+    title = "Mean Value of pass for each posteam",
+    x = "posteam",
+    y = "Mean pass"
+  ) +
+  theme_minimal()
+```
+
+
+

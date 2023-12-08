@@ -33,7 +33,7 @@ Let's analyze the `spotify_all` data:
 spotify_all <- read_csv('https://bcdanl.github.io/data/spotify_all.csv')
 ```
 
-##Q1a
+## Q1a
 
 Find the ten most popular song.
 A value of a song is defined as a combination of a artist_name value and a track_name value.
