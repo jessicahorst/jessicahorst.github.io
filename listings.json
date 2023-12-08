@@ -3,10 +3,10 @@
     "listing": "/blog-listing.html",
     "items": [
       "/posts/restaurant/restaurant.html",
-      "/posts/beer_markets/beer_markets.html",
       "/posts/spotify_all/spotify_all.html",
       "/posts/welcome/index.html",
-      "/posts/nlf_2022/nfl_2022.html"
+      "/posts/nlf_2022/nfl_2022.html",
+      "/posts/beer_markets/beer_markets.html"
     ]
   }
 ]

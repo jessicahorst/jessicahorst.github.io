@@ -4,7 +4,7 @@
     "href": "blog-listing.html",
     "title": "Data Analytics ",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nrestaurant inspection\n\n\n\n\n\n\n\n\n\n4 min\n\n\n\n\n\n\n  \n\n\n\n\nspotify_all\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nspotify_all\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nNFL2022_Stuffs\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nrestaurant inspection\n\n\n\n\n\n\n\n\n\n4 min\n\n\n\n\n\n\n  \n\n\n\n\nspotify_all\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nNFL2022_Stuffs\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nBeer_Market\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJessica Horst\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "danl200-hw5-horst-jessica.html",
@@ -37,28 +37,28 @@
   {
     "objectID": "posts/beer_markets/beer_markets.html",
     "href": "posts/beer_markets/beer_markets.html",
-    "title": "spotify_all",
+    "title": "Beer_Market",
     "section": "",
     "text": "Lets analyze the beer_markets data:\nbeer_mkts &lt;- read_csv('https://bcdanl.github.io/data/beer_markets.csv')\n\nRows: 73115 Columns: 24\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (13): _purchase_desc, brand, container, market, buyertype, income, age, ...\ndbl  (5): hh, quantity, dollar_spent, beer_floz, price_per_floz\nlgl  (6): promo, childrenUnder6, children6to17, microwave, dishwasher, singl...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "posts/beer_markets/beer_markets.html#q1a",
     "href": "posts/beer_markets/beer_markets.html#q1a",
-    "title": "spotify_all",
+    "title": "Beer_Market",
     "section": "Q1a",
     "text": "Q1a\nFind the top 5 markets in terms of the total beer_floz. Find the top 5 markets in terms of the total beer_floz of BUD LIGHT. Find the top 5 markets in terms of the total beer_floz of BUSCH LIGHT. Find the top 5 markets in terms of the total beer_floz of COORS LIGHT. Find the top 5 markets in terms of the total beer_floz of MILLER LITE. Find the top 5 markets in terms of the total beer_floz of NATURAL LIGHT.\n\nQ2a1 &lt;- beer_mkts %&gt;% \n   group_by(market) %&gt;% \n   summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n   arrange(-beer_floz_tot) %&gt;% \n   slice(1:5)\n\nQ2a_bud &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUD LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ2a_busch &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUSCH LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ2a_coors &lt;- beer_mkts %&gt;% \n  filter(brand == \"COORS LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ2a_miller &lt;- beer_mkts %&gt;% \n  filter(brand == \"MILLER LITE\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ2a_natural &lt;- beer_mkts %&gt;% \n  filter(brand == \"NATURAL LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)"
   },
   {
     "objectID": "posts/beer_markets/beer_markets.html#q1b",
     "href": "posts/beer_markets/beer_markets.html#q1b",
-    "title": "spotify_all",
+    "title": "Beer_Market",
     "section": "Q1b",
     "text": "Q1b\nFor households that purchased BUD LIGHT at least once, what fraction of households did purchase only BUD LIGHT?\nFor households that purchased BUSCH LIGHT at least once, what fraction of households did purchase only BUSCH LIGHT?\nFor households that purchased COORS LIGHT at least once, what fraction of households did purchase only COORS LIGHT?\nFor households that purchased MILLER LITE at least once, what fraction of households did purchase only MILLER LITE?\nFor households that purchased NATURAL LIGHT at least once, what fraction of households did purchase only NATURAL LIGHT?\nWhich beer brand does have the largest proportion of such loyal consumers?\n\nq2b &lt;- beer_mkts %&gt;% \n  mutate(bud = ifelse(brand==\"BUD LIGHT\", 1, 0), # 1 if brand==\"BUD LIGHT\"; 0 otherwise\n         busch = ifelse(brand==\"BUSCH LIGHT\", 1, 0),\n         coors = ifelse(brand==\"COORS LIGHT\", 1, 0),\n         miller = ifelse(brand==\"MILLER LITE\", 1, 0),\n         natural = ifelse(brand==\"NATURAL LIGHT\", 1, 0),\n         .after = hh) %&gt;% \n  select(hh:natural) %&gt;%  # select the variables we need\n  group_by(hh) %&gt;% \n  summarise(n_transactions = n(), # number of beer transactions for each hh\n            n_bud = sum(bud), # number of BUD LIGHT transactions for each hh\n            n_busch = sum(busch), \n            n_coors = sum(coors), \n            n_miller = sum(miller), \n            n_natural = sum(natural) \n  ) %&gt;% \n  summarise(loyal_bud = sum(n_transactions == n_bud) / sum(n_bud &gt; 0), \n              # sum(n_transactions == n_bud) : the number of households that purchased BUD LIGHT only\n              # sum(n_bud &gt; 0) : the number of households that purchased BUD LIGHT at least once.\n            loyal_busch = sum(n_transactions == n_busch) / sum(n_busch &gt; 0),\n            loyal_coors = sum(n_transactions == n_coors) / sum(n_coors &gt; 0),\n            loyal_miller = sum(n_transactions == n_miller) / sum(n_miller &gt; 0),\n            loyal_natural = sum(n_transactions == n_natural) / sum(n_natural &gt; 0)\n  )\n\nq2b\n\n# A tibble: 1 × 5\n  loyal_bud loyal_busch loyal_coors loyal_miller loyal_natural\n      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;\n1     0.660       0.473       0.639        0.631         0.510"
   },
   {
     "objectID": "posts/beer_markets/beer_markets.html#q1c",
     "href": "posts/beer_markets/beer_markets.html#q1c",
-    "title": "spotify_all",
+    "title": "Beer_Market",
     "section": "Q1c",
     "text": "Q1c\nFor each household, calculate the number of beer transactions. For each household, calculate the proportion of each beer brand choice.\n\nq2c &lt;- beer_mkts %&gt;% \n  count(hh, brand) %&gt;% \n  group_by(hh) %&gt;% \n  mutate(n_tot = sum(n)) %&gt;%  # n_tot : the number of beer transactions\n  arrange(hh, brand) %&gt;% \n  mutate( prop = n / n_tot ) # prop: the proportion of each beer brand choice\n\nq2c\n\n# A tibble: 13,202 × 5\n# Groups:   hh [10,408]\n        hh brand           n n_tot  prop\n     &lt;dbl&gt; &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2000235 BUD LIGHT       1     1 1    \n 2 2000417 COORS LIGHT     8     8 1    \n 3 2000711 COORS LIGHT    13    13 1    \n 4 2000946 BUD LIGHT       1     2 0.5  \n 5 2000946 MILLER LITE     1     2 0.5  \n 6 2001521 BUD LIGHT       6    11 0.545\n 7 2001521 COORS LIGHT     3    11 0.273\n 8 2001521 MILLER LITE     2    11 0.182\n 9 2001531 BUSCH LIGHT     1     1 1    \n10 2001581 BUSCH LIGHT     5     5 1    \n# ℹ 13,192 more rows"
   },
