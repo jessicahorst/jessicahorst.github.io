@@ -67,7 +67,7 @@
     "href": "posts/restaurant/restaurant.html",
     "title": "restaurant inspection",
     "section": "",
-    "text": "Let’s analyze the restaurant data:\n\nrestaurant &lt;- read_csv(\"https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\")"
+    "text": "Let’s analyze the restaurant data:\n🍽️\n\nrestaurant &lt;- read_csv(\"https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\")"
   },
   {
     "objectID": "posts/restaurant/restaurant.html#q1a",

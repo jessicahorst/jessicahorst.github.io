@@ -6,6 +6,7 @@ author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [restaurant, data analysis]
 image: img/restaurant.jpg
+from: markdown+emoji
 
 execute: 
   warning: false
@@ -37,6 +38,8 @@ theme_set(theme_ipsum()+
 ```
 
 Let's analyze the `restaurant` data:
+
+:plate_with_cutlery:
 
 ```{r}
 restaurant <- read_csv("https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv")
