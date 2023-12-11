@@ -39,7 +39,7 @@
     "href": "posts/beer_markets/beer_markets.html",
     "title": "Beer_Market",
     "section": "",
-    "text": "Lets analyze the beer_markets data:\nbeer_mkts &lt;- read_csv('https://bcdanl.github.io/data/beer_markets.csv')\n\nRows: 73115 Columns: 24\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (13): _purchase_desc, brand, container, market, buyertype, income, age, ...\ndbl  (5): hh, quantity, dollar_spent, beer_floz, price_per_floz\nlgl  (6): promo, childrenUnder6, children6to17, microwave, dishwasher, singl...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "Lets analyze the beer_markets data:\n🍺\nbeer_mkts &lt;- read_csv('https://bcdanl.github.io/data/beer_markets.csv')\n\nRows: 73115 Columns: 24\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (13): _purchase_desc, brand, container, market, buyertype, income, age, ...\ndbl  (5): hh, quantity, dollar_spent, beer_floz, price_per_floz\nlgl  (6): promo, childrenUnder6, children6to17, microwave, dishwasher, singl...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "posts/beer_markets/beer_markets.html#q1a",

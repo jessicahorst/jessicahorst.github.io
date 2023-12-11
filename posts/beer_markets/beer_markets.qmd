@@ -4,6 +4,7 @@ author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [beer market, data analysis]
 image: img/beer_market.JPG
+from: markdown+emoji
 ---
 
 ```{r}
@@ -29,6 +30,8 @@ theme_set(theme_ipsum()+
 ```
 
 Lets analyze the `beer_markets` data: 
+
+data :beer:
 
 ```{r}
 beer_mkts <- read_csv('https://bcdanl.github.io/data/beer_markets.csv')
