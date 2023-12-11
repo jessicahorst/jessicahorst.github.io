@@ -3,6 +3,8 @@ title: "NFL2022_Stuffs"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [NFL, data analysis]
+image: img/nfl_study.JPG
+from: markdown+emoji
 ---
 
 ```{r}
@@ -28,6 +30,8 @@ theme_set(theme_ipsum()+
 ```
 
 Lets analyze the `NFL2022_stuffs` data
+
+data :football:
 
 ```{r}
 NFL2022_stuffs <- read_csv('https://bcdanl.github.io/data/NFL2022_stuffs.csv')
