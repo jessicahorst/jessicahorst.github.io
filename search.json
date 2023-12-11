@@ -123,7 +123,7 @@
     "href": "posts/spotify_all/spotify_all.html",
     "title": "spotify_all",
     "section": "",
-    "text": "Let’s analyze the spotify_all data:\nspotify_all &lt;- read_csv('https://bcdanl.github.io/data/spotify_all.csv')\n\nRows: 198005 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): playlist_name, artist_name, track_name, album_name\ndbl (3): pid, pos, duration_ms\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "Let’s analyze the spotify_all data:\n🎶\nspotify_all &lt;- read_csv('https://bcdanl.github.io/data/spotify_all.csv')\n\nRows: 198005 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): playlist_name, artist_name, track_name, album_name\ndbl (3): pid, pos, duration_ms\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "posts/spotify_all/spotify_all.html#q1b",

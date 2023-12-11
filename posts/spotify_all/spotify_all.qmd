@@ -3,6 +3,8 @@ title: "spotify_all"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [spotify, data analysis]
+image: spotify.png
+from: markdown+emoji
 ---
 
 ```{r}
@@ -28,6 +30,8 @@ theme_set(theme_ipsum()+
 ```
 
 Let's analyze the `spotify_all` data:
+
+:notes:
 
 ```{r}
 spotify_all <- read_csv('https://bcdanl.github.io/data/spotify_all.csv')
