@@ -186,7 +186,7 @@
     "href": "posts/nlf_2022/nfl_2022.html",
     "title": "NFL2022_Stuffs",
     "section": "",
-    "text": "Lets analyze the NFL2022_stuffs data\nNFL2022_stuffs &lt;- read_csv('https://bcdanl.github.io/data/NFL2022_stuffs.csv')\n\nRows: 50147 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): game_id, posteam\ndbl (8): play_id, drive, week, qtr, down, half_seconds_remaining, pass, wp\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "Lets analyze the NFL2022_stuffs data\ndata 🏈\nNFL2022_stuffs &lt;- read_csv('https://bcdanl.github.io/data/NFL2022_stuffs.csv')\n\nRows: 50147 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): game_id, posteam\ndbl (8): play_id, drive, week, qtr, down, half_seconds_remaining, pass, wp\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "posts/nlf_2022/nfl_2022.html#q1a",
