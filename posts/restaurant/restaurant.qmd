@@ -5,7 +5,7 @@ title: "restaurant inspection"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [restaurant, data analysis]
-image: restuarant.png
+image: restaurant.png
 from: markdown+emoji
 
 execute: 
