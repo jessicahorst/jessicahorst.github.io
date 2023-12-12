@@ -3,7 +3,7 @@ title: "NFL2022_Stuffs"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [NFL, data analysis]
-image: nfl_study.JPG
+image: nfl_study.png
 from: markdown+emoji
 
 execute: 

@@ -3,7 +3,7 @@ title: "Beer_Market"
 author: "Jessica Horst"
 date: "`r Sys.Date()`"
 categories: [beer market, data analysis]
-image: img/beer_market.JPG
+image: beer_market.png
 from: markdown+emoji
 
 execute: 
