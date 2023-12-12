@@ -5,6 +5,12 @@ date: "`r Sys.Date()`"
 categories: [spotify, data analysis]
 image: spotify.png
 from: markdown+emoji
+
+execute: 
+  warning: false
+  message: false
+  
+toc: true
 ---
 
 ```{r}

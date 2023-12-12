@@ -5,6 +5,12 @@ date: "`r Sys.Date()`"
 categories: [beer market, data analysis]
 image: img/beer_market.JPG
 from: markdown+emoji
+
+execute: 
+  warning: false
+  message: false
+  
+toc: true
 ---
 
 ```{r}
