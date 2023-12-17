@@ -66,11 +66,16 @@ sharks <- read.csv("C:\\Users\\Jhors\\OneDrive\\Documents\\Data Analytics\\GSAF5
 
 ## Q1a
 
+What is the statistics of the data.frame
 
+```{r}
+skimr::skim(sharks)
+```
+
+## Q1b
 ```{r}
 
 ```
-
 
 
 
