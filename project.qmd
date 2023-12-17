@@ -48,7 +48,9 @@ the purpose of this project is to show our understanding of the Rstudio and Quar
 
 # Data
 
-The Global Shark Attack Data is a comprehensive dataset that provides daily updated records of shark attack incidents worldwide. It offers valuable information on various aspects of each incident, including the date and location of the attack, specific details about the activity the victim was engaged in at the time, and whether it resulted in a fatality or not. With additional columns such as age, injury description, and even the name of the victim involved, this dataset aims to inform people about the risks associated with coastal water activities.
+The Global Shark Attack Data is a comprehensive dataset that provides daily updated records of shark attack incidents worldwide. It offers valuable information on various aspects of each incident, including the date and location of the attack, specific details about the activity the victim was engaged in at the time, and whether it resulted in a fatality or not. With additional columns such as age, injury description, and even the name of the victim involved, this dataset aims to inform people about the risks associated with coastal water
+activities.
+:shark:
 
 ## Summary Statistics
 
@@ -62,15 +64,13 @@ sharks <- read.csv("C:\\Users\\Jhors\\OneDrive\\Documents\\Data Analytics\\GSAF5
 
 ```
 
+## Q1a
+
 
 ```{r}
-skim(mpg) %>% 
-  select(-n_missing)
+
 ```
 
 
-## Expected Points calculator 
-
-this is how we can find the Expected Points on a drive beginning following a touchback has changed over time. We could compare the most recent four years to the expectation for playing in a dome
 
 
